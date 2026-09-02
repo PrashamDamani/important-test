@@ -1,4 +1,3 @@
-// Variables and references
 var numKeys = [];
 var opns = [];
 var res = document.querySelector("#resultArea");
@@ -9,7 +8,6 @@ var decPoint = document.querySelector("#decp");
 var opac = document.querySelector("#opac");
 var opnSyms = ["+", "-", "*", "/"];
 
-// Initialize numeric buttons
 for (var i = 0; i <= 9; i++) {
     (function (i) {
         var qs = "#num" + i;
@@ -21,7 +19,6 @@ for (var i = 0; i <= 9; i++) {
     })(i);
 }
 
-// Initialize operator buttons
 for (var i = 0; i < opnSyms.length; i++) {
     (function (i) {
         var qs = "#op" + i;
@@ -34,19 +31,16 @@ for (var i = 0; i < opnSyms.length; i++) {
     })(i);
 }
 
-// Clear button functionality
 clrBtn.addEventListener("click", function () {
     res.textContent = "";
     opac.innerHTML = "";
 });
 
-// Delete button functionality
 delBtn.addEventListener("click", function () {
     res.textContent = res.textContent.slice(0, -1);
     updatePreview();
 });
 
-// Decimal point functionality
 decPoint.addEventListener("click", function () {
     let current = res.textContent.split(/[\+\-\*\/]/).pop();
     if (!current.includes(".")) {
@@ -54,7 +48,6 @@ decPoint.addEventListener("click", function () {
     }
 });
 
-// Equal button functionality
 eqBtn.addEventListener("click", function () {
     try {
         let result = eval(res.textContent);
@@ -67,7 +60,6 @@ eqBtn.addEventListener("click", function () {
     }
 });
 
-// Utility functions
 function isOperator(char) {
     return opnSyms.includes(char);
 }
